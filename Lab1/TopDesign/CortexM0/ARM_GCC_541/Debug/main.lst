@@ -1,0 +1,475 @@
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB32:
+  27              		.file 1 "main.c"
+   1:main.c        **** #include "project.h"
+   2:main.c        **** int main(void)
+   3:main.c        **** {
+  28              		.loc 1 3 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+   4:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 4 0
+  38              		.syntax divided
+  39              	@ 4 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  42              		.thumb
+  43              		.syntax unified
+  44              	.L2:
+   5:main.c        ****     for(;;)
+   6:main.c        ****     {
+   7:main.c        ****         if(Button_Read() == 1)
+  45              		.loc 1 7 0
+  46 0004 FFF7FEFF 		bl	Button_Read
+  47              	.LVL0:
+  48 0008 0128     		cmp	r0, #1
+  49 000a 03D1     		bne	.L3
+   8:main.c        ****         {
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 2
+
+
+   9:main.c        ****             LED_Write(0);
+  50              		.loc 1 9 0
+  51 000c 0020     		movs	r0, #0
+  52 000e FFF7FEFF 		bl	LED_Write
+  53              	.LVL1:
+  54 0012 F7E7     		b	.L2
+  55              	.L3:
+  10:main.c        ****         }
+  11:main.c        ****         else
+  12:main.c        ****         
+  13:main.c        ****         {
+  14:main.c        ****             LED_Write(1);
+  56              		.loc 1 14 0
+  57 0014 0120     		movs	r0, #1
+  58 0016 FFF7FEFF 		bl	LED_Write
+  59              	.LVL2:
+  60 001a F3E7     		b	.L2
+  61              		.cfi_endproc
+  62              	.LFE32:
+  63              		.size	main, .-main
+  64              		.text
+  65              	.Letext0:
+  66              		.file 2 "Generated_Source\\PSoC4/Button.h"
+  67              		.file 3 "Generated_Source\\PSoC4/LED.h"
+  68              		.section	.debug_info,"",%progbits
+  69              	.Ldebug_info0:
+  70 0000 E6000000 		.4byte	0xe6
+  71 0004 0400     		.2byte	0x4
+  72 0006 00000000 		.4byte	.Ldebug_abbrev0
+  73 000a 04       		.byte	0x4
+  74 000b 01       		.uleb128 0x1
+  75 000c 83000000 		.4byte	.LASF16
+  76 0010 0C       		.byte	0xc
+  77 0011 1B000000 		.4byte	.LASF17
+  78 0015 30010000 		.4byte	.LASF18
+  79 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  80 001d 00000000 		.4byte	0
+  81 0021 00000000 		.4byte	.Ldebug_line0
+  82 0025 02       		.uleb128 0x2
+  83 0026 01       		.byte	0x1
+  84 0027 06       		.byte	0x6
+  85 0028 24010000 		.4byte	.LASF0
+  86 002c 02       		.uleb128 0x2
+  87 002d 01       		.byte	0x1
+  88 002e 08       		.byte	0x8
+  89 002f 60000000 		.4byte	.LASF1
+  90 0033 02       		.uleb128 0x2
+  91 0034 02       		.byte	0x2
+  92 0035 05       		.byte	0x5
+  93 0036 63010000 		.4byte	.LASF2
+  94 003a 02       		.uleb128 0x2
+  95 003b 02       		.byte	0x2
+  96 003c 07       		.byte	0x7
+  97 003d 11010000 		.4byte	.LASF3
+  98 0041 02       		.uleb128 0x2
+  99 0042 04       		.byte	0x4
+ 100 0043 05       		.byte	0x5
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 3
+
+
+ 101 0044 73000000 		.4byte	.LASF4
+ 102 0048 02       		.uleb128 0x2
+ 103 0049 04       		.byte	0x4
+ 104 004a 07       		.byte	0x7
+ 105 004b 31000000 		.4byte	.LASF5
+ 106 004f 02       		.uleb128 0x2
+ 107 0050 08       		.byte	0x8
+ 108 0051 05       		.byte	0x5
+ 109 0052 00000000 		.4byte	.LASF6
+ 110 0056 02       		.uleb128 0x2
+ 111 0057 08       		.byte	0x8
+ 112 0058 07       		.byte	0x7
+ 113 0059 43000000 		.4byte	.LASF7
+ 114 005d 03       		.uleb128 0x3
+ 115 005e 04       		.byte	0x4
+ 116 005f 05       		.byte	0x5
+ 117 0060 696E7400 		.ascii	"int\000"
+ 118 0064 02       		.uleb128 0x2
+ 119 0065 04       		.byte	0x4
+ 120 0066 07       		.byte	0x7
+ 121 0067 0E000000 		.4byte	.LASF8
+ 122 006b 02       		.uleb128 0x2
+ 123 006c 04       		.byte	0x4
+ 124 006d 04       		.byte	0x4
+ 125 006e 5A000000 		.4byte	.LASF9
+ 126 0072 02       		.uleb128 0x2
+ 127 0073 08       		.byte	0x8
+ 128 0074 04       		.byte	0x4
+ 129 0075 7C000000 		.4byte	.LASF10
+ 130 0079 02       		.uleb128 0x2
+ 131 007a 01       		.byte	0x1
+ 132 007b 08       		.byte	0x8
+ 133 007c 6E000000 		.4byte	.LASF11
+ 134 0080 02       		.uleb128 0x2
+ 135 0081 04       		.byte	0x4
+ 136 0082 07       		.byte	0x7
+ 137 0083 79010000 		.4byte	.LASF12
+ 138 0087 02       		.uleb128 0x2
+ 139 0088 08       		.byte	0x8
+ 140 0089 04       		.byte	0x4
+ 141 008a 57010000 		.4byte	.LASF13
+ 142 008e 04       		.uleb128 0x4
+ 143 008f 22000000 		.4byte	.LASF19
+ 144 0093 01       		.byte	0x1
+ 145 0094 02       		.byte	0x2
+ 146 0095 5D000000 		.4byte	0x5d
+ 147 0099 00000000 		.4byte	.LFB32
+ 148 009d 1C000000 		.4byte	.LFE32-.LFB32
+ 149 00a1 01       		.uleb128 0x1
+ 150 00a2 9C       		.byte	0x9c
+ 151 00a3 D3000000 		.4byte	0xd3
+ 152 00a7 05       		.uleb128 0x5
+ 153 00a8 08000000 		.4byte	.LVL0
+ 154 00ac D3000000 		.4byte	0xd3
+ 155 00b0 06       		.uleb128 0x6
+ 156 00b1 12000000 		.4byte	.LVL1
+ 157 00b5 DE000000 		.4byte	0xde
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 4
+
+
+ 158 00b9 C3000000 		.4byte	0xc3
+ 159 00bd 07       		.uleb128 0x7
+ 160 00be 01       		.uleb128 0x1
+ 161 00bf 50       		.byte	0x50
+ 162 00c0 01       		.uleb128 0x1
+ 163 00c1 30       		.byte	0x30
+ 164 00c2 00       		.byte	0
+ 165 00c3 08       		.uleb128 0x8
+ 166 00c4 1A000000 		.4byte	.LVL2
+ 167 00c8 DE000000 		.4byte	0xde
+ 168 00cc 07       		.uleb128 0x7
+ 169 00cd 01       		.uleb128 0x1
+ 170 00ce 50       		.byte	0x50
+ 171 00cf 01       		.uleb128 0x1
+ 172 00d0 31       		.byte	0x31
+ 173 00d1 00       		.byte	0
+ 174 00d2 00       		.byte	0
+ 175 00d3 09       		.uleb128 0x9
+ 176 00d4 6D010000 		.4byte	.LASF14
+ 177 00d8 6D010000 		.4byte	.LASF14
+ 178 00dc 02       		.byte	0x2
+ 179 00dd 32       		.byte	0x32
+ 180 00de 09       		.uleb128 0x9
+ 181 00df 27000000 		.4byte	.LASF15
+ 182 00e3 27000000 		.4byte	.LASF15
+ 183 00e7 03       		.byte	0x3
+ 184 00e8 33       		.byte	0x33
+ 185 00e9 00       		.byte	0
+ 186              		.section	.debug_abbrev,"",%progbits
+ 187              	.Ldebug_abbrev0:
+ 188 0000 01       		.uleb128 0x1
+ 189 0001 11       		.uleb128 0x11
+ 190 0002 01       		.byte	0x1
+ 191 0003 25       		.uleb128 0x25
+ 192 0004 0E       		.uleb128 0xe
+ 193 0005 13       		.uleb128 0x13
+ 194 0006 0B       		.uleb128 0xb
+ 195 0007 03       		.uleb128 0x3
+ 196 0008 0E       		.uleb128 0xe
+ 197 0009 1B       		.uleb128 0x1b
+ 198 000a 0E       		.uleb128 0xe
+ 199 000b 55       		.uleb128 0x55
+ 200 000c 17       		.uleb128 0x17
+ 201 000d 11       		.uleb128 0x11
+ 202 000e 01       		.uleb128 0x1
+ 203 000f 10       		.uleb128 0x10
+ 204 0010 17       		.uleb128 0x17
+ 205 0011 00       		.byte	0
+ 206 0012 00       		.byte	0
+ 207 0013 02       		.uleb128 0x2
+ 208 0014 24       		.uleb128 0x24
+ 209 0015 00       		.byte	0
+ 210 0016 0B       		.uleb128 0xb
+ 211 0017 0B       		.uleb128 0xb
+ 212 0018 3E       		.uleb128 0x3e
+ 213 0019 0B       		.uleb128 0xb
+ 214 001a 03       		.uleb128 0x3
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 5
+
+
+ 215 001b 0E       		.uleb128 0xe
+ 216 001c 00       		.byte	0
+ 217 001d 00       		.byte	0
+ 218 001e 03       		.uleb128 0x3
+ 219 001f 24       		.uleb128 0x24
+ 220 0020 00       		.byte	0
+ 221 0021 0B       		.uleb128 0xb
+ 222 0022 0B       		.uleb128 0xb
+ 223 0023 3E       		.uleb128 0x3e
+ 224 0024 0B       		.uleb128 0xb
+ 225 0025 03       		.uleb128 0x3
+ 226 0026 08       		.uleb128 0x8
+ 227 0027 00       		.byte	0
+ 228 0028 00       		.byte	0
+ 229 0029 04       		.uleb128 0x4
+ 230 002a 2E       		.uleb128 0x2e
+ 231 002b 01       		.byte	0x1
+ 232 002c 3F       		.uleb128 0x3f
+ 233 002d 19       		.uleb128 0x19
+ 234 002e 03       		.uleb128 0x3
+ 235 002f 0E       		.uleb128 0xe
+ 236 0030 3A       		.uleb128 0x3a
+ 237 0031 0B       		.uleb128 0xb
+ 238 0032 3B       		.uleb128 0x3b
+ 239 0033 0B       		.uleb128 0xb
+ 240 0034 27       		.uleb128 0x27
+ 241 0035 19       		.uleb128 0x19
+ 242 0036 49       		.uleb128 0x49
+ 243 0037 13       		.uleb128 0x13
+ 244 0038 8701     		.uleb128 0x87
+ 245 003a 19       		.uleb128 0x19
+ 246 003b 11       		.uleb128 0x11
+ 247 003c 01       		.uleb128 0x1
+ 248 003d 12       		.uleb128 0x12
+ 249 003e 06       		.uleb128 0x6
+ 250 003f 40       		.uleb128 0x40
+ 251 0040 18       		.uleb128 0x18
+ 252 0041 9742     		.uleb128 0x2117
+ 253 0043 19       		.uleb128 0x19
+ 254 0044 01       		.uleb128 0x1
+ 255 0045 13       		.uleb128 0x13
+ 256 0046 00       		.byte	0
+ 257 0047 00       		.byte	0
+ 258 0048 05       		.uleb128 0x5
+ 259 0049 898201   		.uleb128 0x4109
+ 260 004c 00       		.byte	0
+ 261 004d 11       		.uleb128 0x11
+ 262 004e 01       		.uleb128 0x1
+ 263 004f 31       		.uleb128 0x31
+ 264 0050 13       		.uleb128 0x13
+ 265 0051 00       		.byte	0
+ 266 0052 00       		.byte	0
+ 267 0053 06       		.uleb128 0x6
+ 268 0054 898201   		.uleb128 0x4109
+ 269 0057 01       		.byte	0x1
+ 270 0058 11       		.uleb128 0x11
+ 271 0059 01       		.uleb128 0x1
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 6
+
+
+ 272 005a 31       		.uleb128 0x31
+ 273 005b 13       		.uleb128 0x13
+ 274 005c 01       		.uleb128 0x1
+ 275 005d 13       		.uleb128 0x13
+ 276 005e 00       		.byte	0
+ 277 005f 00       		.byte	0
+ 278 0060 07       		.uleb128 0x7
+ 279 0061 8A8201   		.uleb128 0x410a
+ 280 0064 00       		.byte	0
+ 281 0065 02       		.uleb128 0x2
+ 282 0066 18       		.uleb128 0x18
+ 283 0067 9142     		.uleb128 0x2111
+ 284 0069 18       		.uleb128 0x18
+ 285 006a 00       		.byte	0
+ 286 006b 00       		.byte	0
+ 287 006c 08       		.uleb128 0x8
+ 288 006d 898201   		.uleb128 0x4109
+ 289 0070 01       		.byte	0x1
+ 290 0071 11       		.uleb128 0x11
+ 291 0072 01       		.uleb128 0x1
+ 292 0073 31       		.uleb128 0x31
+ 293 0074 13       		.uleb128 0x13
+ 294 0075 00       		.byte	0
+ 295 0076 00       		.byte	0
+ 296 0077 09       		.uleb128 0x9
+ 297 0078 2E       		.uleb128 0x2e
+ 298 0079 00       		.byte	0
+ 299 007a 3F       		.uleb128 0x3f
+ 300 007b 19       		.uleb128 0x19
+ 301 007c 3C       		.uleb128 0x3c
+ 302 007d 19       		.uleb128 0x19
+ 303 007e 6E       		.uleb128 0x6e
+ 304 007f 0E       		.uleb128 0xe
+ 305 0080 03       		.uleb128 0x3
+ 306 0081 0E       		.uleb128 0xe
+ 307 0082 3A       		.uleb128 0x3a
+ 308 0083 0B       		.uleb128 0xb
+ 309 0084 3B       		.uleb128 0x3b
+ 310 0085 0B       		.uleb128 0xb
+ 311 0086 00       		.byte	0
+ 312 0087 00       		.byte	0
+ 313 0088 00       		.byte	0
+ 314              		.section	.debug_aranges,"",%progbits
+ 315 0000 1C000000 		.4byte	0x1c
+ 316 0004 0200     		.2byte	0x2
+ 317 0006 00000000 		.4byte	.Ldebug_info0
+ 318 000a 04       		.byte	0x4
+ 319 000b 00       		.byte	0
+ 320 000c 0000     		.2byte	0
+ 321 000e 0000     		.2byte	0
+ 322 0010 00000000 		.4byte	.LFB32
+ 323 0014 1C000000 		.4byte	.LFE32-.LFB32
+ 324 0018 00000000 		.4byte	0
+ 325 001c 00000000 		.4byte	0
+ 326              		.section	.debug_ranges,"",%progbits
+ 327              	.Ldebug_ranges0:
+ 328 0000 00000000 		.4byte	.LFB32
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 7
+
+
+ 329 0004 1C000000 		.4byte	.LFE32
+ 330 0008 00000000 		.4byte	0
+ 331 000c 00000000 		.4byte	0
+ 332              		.section	.debug_line,"",%progbits
+ 333              	.Ldebug_line0:
+ 334 0000 60000000 		.section	.debug_str,"MS",%progbits,1
+ 334      02004900 
+ 334      00000201 
+ 334      FB0E0D00 
+ 334      01010101 
+ 335              	.LASF6:
+ 336 0000 6C6F6E67 		.ascii	"long long int\000"
+ 336      206C6F6E 
+ 336      6720696E 
+ 336      7400
+ 337              	.LASF8:
+ 338 000e 756E7369 		.ascii	"unsigned int\000"
+ 338      676E6564 
+ 338      20696E74 
+ 338      00
+ 339              	.LASF17:
+ 340 001b 6D61696E 		.ascii	"main.c\000"
+ 340      2E6300
+ 341              	.LASF19:
+ 342 0022 6D61696E 		.ascii	"main\000"
+ 342      00
+ 343              	.LASF15:
+ 344 0027 4C45445F 		.ascii	"LED_Write\000"
+ 344      57726974 
+ 344      6500
+ 345              	.LASF5:
+ 346 0031 6C6F6E67 		.ascii	"long unsigned int\000"
+ 346      20756E73 
+ 346      69676E65 
+ 346      6420696E 
+ 346      7400
+ 347              	.LASF7:
+ 348 0043 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 348      206C6F6E 
+ 348      6720756E 
+ 348      7369676E 
+ 348      65642069 
+ 349              	.LASF9:
+ 350 005a 666C6F61 		.ascii	"float\000"
+ 350      7400
+ 351              	.LASF1:
+ 352 0060 756E7369 		.ascii	"unsigned char\000"
+ 352      676E6564 
+ 352      20636861 
+ 352      7200
+ 353              	.LASF11:
+ 354 006e 63686172 		.ascii	"char\000"
+ 354      00
+ 355              	.LASF4:
+ 356 0073 6C6F6E67 		.ascii	"long int\000"
+ 356      20696E74 
+ 356      00
+ARM GAS  C:\Users\55ron\AppData\Local\Temp\ccCfVeKv.s 			page 8
+
+
+ 357              	.LASF10:
+ 358 007c 646F7562 		.ascii	"double\000"
+ 358      6C6500
+ 359              	.LASF16:
+ 360 0083 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 360      43313120 
+ 360      352E342E 
+ 360      31203230 
+ 360      31363036 
+ 361 00b6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 361      20726576 
+ 361      6973696F 
+ 361      6E203233 
+ 361      37373135 
+ 362 00e9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 362      66756E63 
+ 362      74696F6E 
+ 362      2D736563 
+ 362      74696F6E 
+ 363              	.LASF3:
+ 364 0111 73686F72 		.ascii	"short unsigned int\000"
+ 364      7420756E 
+ 364      7369676E 
+ 364      65642069 
+ 364      6E7400
+ 365              	.LASF0:
+ 366 0124 7369676E 		.ascii	"signed char\000"
+ 366      65642063 
+ 366      68617200 
+ 367              	.LASF18:
+ 368 0130 593A5C50 		.ascii	"Y:\\Psoc_Project\\Workspace01\\Lab1.cydsn\000"
+ 368      736F635F 
+ 368      50726F6A 
+ 368      6563745C 
+ 368      576F726B 
+ 369              	.LASF13:
+ 370 0157 6C6F6E67 		.ascii	"long double\000"
+ 370      20646F75 
+ 370      626C6500 
+ 371              	.LASF2:
+ 372 0163 73686F72 		.ascii	"short int\000"
+ 372      7420696E 
+ 372      7400
+ 373              	.LASF14:
+ 374 016d 42757474 		.ascii	"Button_Read\000"
+ 374      6F6E5F52 
+ 374      65616400 
+ 375              	.LASF12:
+ 376 0179 73697A65 		.ascii	"sizetype\000"
+ 376      74797065 
+ 376      00
+ 377              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
